@@ -14,7 +14,8 @@ public:
         cout << "Количество сторон: " << sides_count << endl;
     }
 
-    virtual bool check() {
+    virtual bool check() 
+    {
         return sides_count > 0;
     }
 
@@ -37,13 +38,12 @@ public:
         this->A_angle = A_angle;
         this->B_angle = B_angle;
         C_angle = 180 - A_angle - B_angle;
-        correct = check();
     }
 
     void Print_info() override
     {
         cout << "Название фигуры: " << name << endl;
-        cout << (correct ? "Правильная" : "Неправильная") << endl;
+        cout << (check() ? "Правильная" : "Неправильная") << endl;
         cout << "Количество сторон: " << sides_count << endl;
         cout << "Стороны: a = " << a_side << " b = " << b_side << " c = " << c_side << endl;
         cout << "Углы: A = " << A_angle << " B = " << B_angle << " C = " << C_angle << endl << endl;
@@ -51,8 +51,8 @@ public:
 
 
     bool check() override {
-        if (A_angle + B_angle <= C_angle || A_angle + C_angle <= B_angle || B_angle + C_angle <= A_angle)
-            return false;
+        if (A_angle + B_angle + C_angle == 180)
+            return true;
         return Figure::check();
     }
 
@@ -63,7 +63,6 @@ protected:
     int A_angle = 0;
     int B_angle = 0;
     int C_angle = 0;
-    bool correct = check();
 };
 
 class Quadrangle :public Figure
@@ -81,13 +80,12 @@ public:
         this->B_angle = B_angle;
         this->C_angle = C_angle;
         this->D_angle = D_angle;
-        correct = check();
     }
 
     void Print_info() override
     {
         cout << "Название фигуры: " << name << endl;
-        cout << (correct ? "Правильная" : "Неправильная") << endl;
+        cout << (check() ? "Правильная" : "Неправильная") << endl;
         cout << "Количество сторон: " << sides_count << endl;
         cout << "Стороны: a = " << a_side << " b = " << b_side << " c = " << c_side << " d = " << d_side << endl;
         cout << "Углы: A = " << A_angle << " B = " << B_angle << " C = " << C_angle << " D = " << D_angle << endl << endl;
@@ -95,7 +93,7 @@ public:
 
     bool check() override {
         if (A_angle <= 0 || B_angle <= 0 || C_angle <= 0 || D_angle <= 0)
-            return false;
+            return true;
         return Figure::check();
     }
 
@@ -108,7 +106,6 @@ protected:
     int B_angle = 0;
     int C_angle = 0;
     int D_angle = 0;
-    bool correct = check();
 };
 
 class Right_Triangle : public Triangle
@@ -124,9 +121,15 @@ public:
     void Print_info() override
     {
         cout << "Название фигуры: " << name << endl;
+        cout << (check() ? "Правильная" : "Неправильная") << endl;
         cout << "Количество сторон: " << sides_count << endl;
         cout << "Стороны: a = " << a_side << " b = " << b_side << " c = " << c_side << endl;
         cout << "Углы: A = " << A_angle << " B = " << B_angle << " C = " << C_angle << endl << endl;
+    }
+    bool check() override {
+        if (C_angle == 90)
+            return true;
+        return Figure::check();
     }
 };
 
@@ -145,9 +148,16 @@ public:
     void Print_info() override
     {
         cout << "Название фигуры: " << name << endl;
+        cout << (check() ? "Правильная" : "Неправильная") << endl;
         cout << "Количество сторон: " << sides_count << endl;
         cout << "Стороны: a = " << a_side << " b = " << b_side << " c = " << c_side << endl;
         cout << "Углы: A = " << A_angle << " B = " << B_angle << " C = " << C_angle << endl << endl;
+    }
+    bool check() override
+    {
+        if (c_side == a_side && A_angle == C_angle)
+            return true;
+        return Figure::check();
     }
 };
 
@@ -170,9 +180,16 @@ public:
     void Print_info() override
     {
         cout << "Название фигуры: " << name << endl;
+        cout << (check() ? "Правильная" : "Неправильная") << endl;
         cout << "Количество сторон: " << sides_count << endl;
         cout << "Стороны: a = " << a_side << " b = " << b_side << " c = " << c_side << endl;
         cout << "Углы: A = " << A_angle << " B = " << B_angle << " C = " << C_angle << endl << endl;
+    }
+    bool check() override
+    {
+        if (a_side == b_side == c_side && A_angle == 60 && B_angle == 60 && C_angle == 60)
+            return true;
+        return Figure::check();
     }
 };
 
@@ -195,9 +212,16 @@ public:
     void Print_info() override
     {
         cout << "Название фигуры: " << name << endl;
+        cout << (check() ? "Правильная" : "Неправильная") << endl;
         cout << "Количество сторон: " << sides_count << endl;
         cout << "Стороны: a = " << a_side << " b = " << b_side << " c = " << c_side << " d = " << d_side << endl;
         cout << "Углы: A = " << A_angle << " B = " << B_angle << " C = " << C_angle << " D = " << D_angle << endl << endl;
+    }
+    bool check() override
+    {
+        if (C_angle == 90)
+            return true;
+        return Figure::check();
     }
 };
 
@@ -218,9 +242,16 @@ public:
     void Print_info() override
     {
         cout << "Название фигуры: " << name << endl;
+        cout << (check() ? "Правильная" : "Неправильная") << endl;
         cout << "Количество сторон: " << sides_count << endl;
         cout << "Стороны: a = " << a_side << " b = " << b_side << " c = " << c_side << " d = " << d_side << endl;
         cout << "Углы: A = " << A_angle << " B = " << B_angle << " C = " << C_angle << " D = " << D_angle << endl << endl;
+    }
+    bool check() override
+    {
+        if (a_side == b_side == c_side == d_side && A_angle == 90 && B_angle == 90 && C_angle == 90 && D_angle == 90)
+            return true;
+        return Figure::check();
     }
 };
 
@@ -240,9 +271,16 @@ public:
     void Print_info() override
     {
         cout << "Название фигуры: " << name << endl;
+        cout << (check() ? "Правильная" : "Неправильная") << endl;
         cout << "Количество сторон: " << sides_count << endl;
         cout << "Стороны: a = " << a_side << " b = " << b_side << " c = " << c_side << " d = " << d_side << endl;
         cout << "Углы: A = " << A_angle << " B = " << B_angle << " C = " << C_angle << " D = " << D_angle << endl << endl;
+    }
+    bool check() override
+    {
+        if (a_side == b_side && c_side == d_side && A_angle == B_angle && C_angle == D_angle)
+            return true;
+        return Figure::check();
     }
 };
 
@@ -261,10 +299,17 @@ public:
     void Print_info() override
     {
         cout << "Название фигуры: " << name << endl;
+        cout << (check() ? "Правильная" : "Неправильная") << endl;
         cout << "Количество сторон: " << sides_count << endl;
         cout << "Стороны: a = " << a_side << " b = " << b_side << " c = " << c_side << " d = " << d_side << endl;
         cout << "Углы: A = " << A_angle << " B = " << B_angle << " C = " << C_angle << " D = " << D_angle << endl << endl;
     };
+    bool check() override
+    {
+        if (a_side == b_side && c_side == d_side && A_angle == B_angle && C_angle == D_angle)
+            return true;
+        return Figure::check();
+    }
 };
 
 void Print_info(Figure* figure)
@@ -278,19 +323,19 @@ int main()
 
 
     Figure figure;
-    Triangle triangle(10, 20, 30, 500, 60);
+    Triangle triangle(10, 20, 30, 80, 60);
     Print_info(&triangle);
 
     Right_Triangle right_triangle(10, 20, 30, 50);
     Print_info(&right_triangle);
 
-    Isosceles_Triangle Isosceles_Triangle(10, 20, 50, 60);
-    Print_info(&Isosceles_Triangle);
+    Isosceles_Triangle isosceles_triangle(10, 20, 50, 60);
+    Print_info(&isosceles_triangle);
 
     Equilateral_Triangle Equilateral_Triangle(30, 60);
     Print_info(&Equilateral_Triangle);
 
-    Quadrangle Quadrangle(10, 20, 30, 40, 50, 60, 70, 80);
+    Quadrangle Quadrangle(10, 20, 30, 40, 50, 60, 70, 180);
     Print_info(&Quadrangle);
 
     Rectangle Rectangle(10, 20, 90);
