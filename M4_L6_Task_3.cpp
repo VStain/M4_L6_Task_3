@@ -129,7 +129,7 @@ public:
     bool check() override {
         if (C_angle == 90)
             return true;
-        return Figure::check();
+        return Triangle::check();
     }
 };
 
@@ -157,7 +157,7 @@ public:
     {
         if (c_side == a_side && A_angle == C_angle)
             return true;
-        return Figure::check();
+        return Triangle::check();
     }
 };
 
@@ -189,7 +189,7 @@ public:
     {
         if (a_side == b_side == c_side && A_angle == 60 && B_angle == 60 && C_angle == 60)
             return true;
-        return Figure::check();
+        return Triangle::check();
     }
 };
 
@@ -221,7 +221,7 @@ public:
     {
         if (C_angle == 90)
             return true;
-        return Figure::check();
+        return Quadrangle::check();
     }
 };
 
@@ -251,7 +251,7 @@ public:
     {
         if (a_side == b_side == c_side == d_side && A_angle == 90 && B_angle == 90 && C_angle == 90 && D_angle == 90)
             return true;
-        return Figure::check();
+        return Quadrangle::check();
     }
 };
 
@@ -280,7 +280,7 @@ public:
     {
         if (a_side == b_side && c_side == d_side && A_angle == B_angle && C_angle == D_angle)
             return true;
-        return Figure::check();
+        return Quadrangle::check();
     }
 };
 
@@ -308,7 +308,7 @@ public:
     {
         if (a_side == b_side && c_side == d_side && A_angle == B_angle && C_angle == D_angle)
             return true;
-        return Figure::check();
+        return Quadrangle::check();
     }
 };
 
