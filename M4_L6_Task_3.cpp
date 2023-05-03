@@ -126,10 +126,19 @@ public:
         cout << "Стороны: a = " << a_side << " b = " << b_side << " c = " << c_side << endl;
         cout << "Углы: A = " << A_angle << " B = " << B_angle << " C = " << C_angle << endl << endl;
     }
-    bool check() override {
-        if (C_angle == 90)
-            return true;
-        return Triangle::check();
+    bool check() override 
+    {
+        if (!Triangle::check())
+        {
+            return false;
+        }
+        if (C_angle != 90)
+        {
+            return false;
+        }
+
+        return true;
+
     }
 };
 
@@ -153,11 +162,19 @@ public:
         cout << "Стороны: a = " << a_side << " b = " << b_side << " c = " << c_side << endl;
         cout << "Углы: A = " << A_angle << " B = " << B_angle << " C = " << C_angle << endl << endl;
     }
+
     bool check() override
     {
-        if (c_side == a_side && A_angle == C_angle)
-            return true;
-        return Triangle::check();
+        if (!Triangle::check())
+        {
+            return false;
+        }
+        if (c_side != a_side && A_angle != C_angle)
+        {
+            return false;
+        }
+
+        return true;
     }
 };
 
@@ -185,11 +202,19 @@ public:
         cout << "Стороны: a = " << a_side << " b = " << b_side << " c = " << c_side << endl;
         cout << "Углы: A = " << A_angle << " B = " << B_angle << " C = " << C_angle << endl << endl;
     }
+
     bool check() override
     {
-        if (a_side == b_side == c_side && A_angle == 60 && B_angle == 60 && C_angle == 60)
-            return true;
-        return Triangle::check();
+        if (!Triangle::check())
+        {
+            return false;
+        }
+        if (a_side != b_side != c_side && A_angle != 60 && B_angle != 60 && C_angle != 60)
+        {
+            return false;
+        }
+
+        return true;
     }
 };
 
@@ -217,11 +242,19 @@ public:
         cout << "Стороны: a = " << a_side << " b = " << b_side << " c = " << c_side << " d = " << d_side << endl;
         cout << "Углы: A = " << A_angle << " B = " << B_angle << " C = " << C_angle << " D = " << D_angle << endl << endl;
     }
+
     bool check() override
     {
-        if (C_angle == 90)
-            return true;
-        return Quadrangle::check();
+        if (!Quadrangle::check())
+        {
+            return false;
+        }
+        if (C_angle != 90)
+        {
+            return false;
+        }
+
+        return true;
     }
 };
 
@@ -247,11 +280,19 @@ public:
         cout << "Стороны: a = " << a_side << " b = " << b_side << " c = " << c_side << " d = " << d_side << endl;
         cout << "Углы: A = " << A_angle << " B = " << B_angle << " C = " << C_angle << " D = " << D_angle << endl << endl;
     }
+
     bool check() override
     {
-        if (a_side == b_side == c_side == d_side && A_angle == 90 && B_angle == 90 && C_angle == 90 && D_angle == 90)
-            return true;
-        return Quadrangle::check();
+        if (!Quadrangle::check())
+        {
+            return false;
+        }
+        if (a_side != b_side != c_side != d_side && A_angle != 90 && B_angle != 90 && C_angle != 90 && D_angle != 90)
+        {
+            return false;
+        }
+
+        return true;
     }
 };
 
@@ -276,11 +317,19 @@ public:
         cout << "Стороны: a = " << a_side << " b = " << b_side << " c = " << c_side << " d = " << d_side << endl;
         cout << "Углы: A = " << A_angle << " B = " << B_angle << " C = " << C_angle << " D = " << D_angle << endl << endl;
     }
+
     bool check() override
     {
-        if (a_side == b_side && c_side == d_side && A_angle == B_angle && C_angle == D_angle)
-            return true;
-        return Quadrangle::check();
+        if (!Quadrangle::check())
+        {
+            return false;
+        }
+        if (a_side != b_side && c_side != d_side && A_angle != B_angle && C_angle != D_angle)
+        {
+            return false;
+        }
+
+        return true;
     }
 };
 
@@ -304,11 +353,19 @@ public:
         cout << "Стороны: a = " << a_side << " b = " << b_side << " c = " << c_side << " d = " << d_side << endl;
         cout << "Углы: A = " << A_angle << " B = " << B_angle << " C = " << C_angle << " D = " << D_angle << endl << endl;
     };
+
     bool check() override
     {
-        if (a_side == b_side && c_side == d_side && A_angle == B_angle && C_angle == D_angle)
-            return true;
-        return Quadrangle::check();
+        if (!Quadrangle::check())
+        {
+            return false;
+        }
+        if (a_side != b_side && c_side != d_side && A_angle != B_angle && C_angle != D_angle)
+        {
+            return false;
+        }
+
+        return true;
     }
 };
 
